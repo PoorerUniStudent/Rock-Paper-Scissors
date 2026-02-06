@@ -1,8 +1,11 @@
 import random
 
+# This is just the gameloop, will continue if you type y but end if you type n
 def gameLoop():
     loop = True
     while(loop):
+        # I put the random selection inside the loop because if it was outside, then the
+        # computers choice would've been fixed
         computerChoice = random.randint(1,3)
         print("Enter your choice:\n 1 - Rock\n 2 - Paper\n 3 - Scissors\n\n")
         while(True):
@@ -11,6 +14,7 @@ def gameLoop():
                 if choice not in [1,2,3]:
                     raise ValueError("Invalid choice. Please try again!\n")
                 break
+            # I still have zero idea on why we do ValueError instead of anything else
             except ValueError as e:
                 print(f"Error: {e}")
         print("Now it's computer's turn...\n")
@@ -21,6 +25,8 @@ def gameLoop():
         elif computerChoice == 3:
             print("Computer chose scissors!\n")
         
+        # I think I could've just put this stuff in another function to do
+        # Or there was a better solution, but this is the best I've got for now.
         if choice == 1:
             if computerChoice == 1:
                 print("<== It's a tie ==>")
